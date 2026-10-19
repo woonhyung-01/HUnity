@@ -19,7 +19,7 @@ public class bullit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
-            playerController.OnDie();
+            playerController.TakeDamage();
         }
 
         if (!isCluster)

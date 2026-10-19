@@ -29,7 +29,7 @@ public class homing_bullet : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
-            playerController.OnDie();
+            playerController.TakeDamage();
         }
 
         if(other.CompareTag("Bullet"))

@@ -22,7 +22,7 @@ public class bullet_Cluster : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
-            playerController.OnDie();
+            playerController.TakeDamage();
         }
 
     }
