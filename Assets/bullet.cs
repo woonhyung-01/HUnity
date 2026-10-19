@@ -5,6 +5,8 @@ public class bullit : MonoBehaviour
     public float speed = 8f;
     private Rigidbody rb;
 
+    public bool isCluster;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -16,16 +18,16 @@ public class bullit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false);
+            PlayerController playerController = other.GetComponent<PlayerController>();
+            playerController.OnDie();
         }
 
-        if(other.CompareTag("Bullet"))
+        if (!isCluster)
+        {
+            if(other.CompareTag("Bullet"))
         {
             Destroy(gameObject);
         }
+        }
     }
-
-    private void OnTriggerStay(Collider other){}
-
-    private void OnTriggerExit(Collider other){}
 }

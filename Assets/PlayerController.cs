@@ -5,9 +5,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
     public Rigidbody rb;
+    private GameManager gameManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        GameObject findGo = GameObject.FindWithTag("GameController");
+        gameManager = findGo.GetComponent<GameManager>();
     }
 
     private void Update()
@@ -22,5 +27,23 @@ public class PlayerController : MonoBehaviour
 
 
         rb.linearVelocity = direction * speed;
+    }
+
+    public void OnDie()
+    {
+        gameObject.SetActive(false);
+        gameManager.EndGame();
+    }
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Item_Speed"))
+    //     {
+    //         speed += 3f;
+    //     }
+    // }
+    public void Item_SpeedGet()
+    {
+        speed += 3f;
     }
 }

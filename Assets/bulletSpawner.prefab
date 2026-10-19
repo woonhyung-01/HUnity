@@ -103,5 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eacbad5e17869924395a6a200a5e7c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bz
-  bulletPrefab: {fileID: 715447727285576530, guid: 34037c56547b9e6468510e9d9822da60, type: 3}
-  interval: 1
+  array:
+  - {fileID: 715447727285576530, guid: 34037c56547b9e6468510e9d9822da60, type: 3}
+  - {fileID: 715447727285576530, guid: a2e9cd39156158346b074e7329b6c902, type: 3}
+  - {fileID: 715447727285576530, guid: ebc84a6e5241a3c47b48a5653b7ad7dc, type: 3}
+  interval: 4

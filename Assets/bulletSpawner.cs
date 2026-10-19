@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    // public GameObject bulletPrefab;
     private Transform target;
 
-    public float interval = 1f;
+    public GameObject[] array = new GameObject[3];
+
+    public float interval = 3f;
     private float timer = 0;
     
     private void Start()
@@ -24,10 +26,22 @@ public class BulletSpawner : MonoBehaviour
     }
     private void Spawn()
     {
+        var element = array[Random.Range(0, array.Length)];
         Vector3 position = transform.position;
         Vector3 direction = target.position - position;
         direction.Normalize();
         Quaternion rotation = Quaternion.LookRotation(direction);
-        Instantiate(bulletPrefab, position, rotation);
+        if (element == array[0])
+        {
+            Instantiate(array[0], position, rotation);
+        }
+        else if (element == array[1])
+        {
+            Instantiate(array[1], position, rotation);
+        }
+        else if (element == array[2])
+        {
+            Instantiate(array[2], position, rotation);
+        }
     }
 }
